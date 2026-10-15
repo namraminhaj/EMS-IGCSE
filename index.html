@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Safety Awareness Simulation</title>
+
+<style>
+:root{
+    --bg:#0b1020;
+    --panel:rgba(18,25,45,.92);
+    --text:#f8fafc;
+    --muted:#cbd5e1;
+    --danger:#ff4d6d;
+    --gold:#fbbf24;
+    --green:#86efac;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:var(--text);
+
+    background:
+    radial-gradient(circle at 15% 15%, rgba(168,85,247,.30), transparent 35%),
+    radial-gradient(circle at 85% 85%, rgba(255,77,109,.25), transparent 30%),
+    var(--bg);
+}
+
+.card{
+    width:min(900px,100%);
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+    position:relative;
+    overflow:hidden;
+}
+
+.pill{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid rgba(251,191,36,.45);
+    background:rgba(251,191,36,.12);
+    color:#fde68a;
+    font-weight:700;
+    letter-spacing:.08em;
+}
+
+.teacher-banner{
+    margin:22px 0;
+    padding:22px;
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,77,109,.15),
+        rgba(251,191,36,.12),
+        rgba(168,85,247,.12)
+    );
+
+    border:1px solid rgba(251,191,36,.25);
+}
+
+.school{
+    color:var(--gold);
+    font-weight:900;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.campaign{
+    font-size:1.5rem;
+    font-weight:800;
+}
+
+.teacher{
+    margin-top:10px;
+    color:var(--muted);
+}
+
+.warning{
+    margin:24px 0;
+    padding:14px;
+    border-radius:14px;
+    background:#7f1d1d;
+    color:white;
+    font-weight:800;
+    letter-spacing:.08em;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        opacity:1;
+    }
+    50%{
+        opacity:.6;
+    }
+}
+
+.hero{
+    font-size:5rem;
+    margin:10px 0;
+}
+
+h1{
+    font-size:clamp(2.5rem,7vw,4.5rem);
+    margin-bottom:15px;
+}
+
+.gradient{
+    background:
+    linear-gradient(
+        90deg,
+        #ff4d6d,
+        #fbbf24,
+        #ffffff,
+        #fbbf24,
+        #ff4d6d
+    );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+    to{
+        background-position:300% center;
+    }
+}
+
+.subtitle{
+    color:var(--muted);
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.reveal{
+    margin-top:25px;
+    padding:22px;
+    border-radius:18px;
+
+    background:rgba(255,77,109,.10);
+    border:1px solid rgba(255,77,109,.35);
+}
+
+.reveal h2{
+    margin-bottom:10px;
+}
+
+.safe{
+    margin-top:20px;
+    padding:22px;
+    border-radius:18px;
+    text-align:left;
+
+    background:rgba(34,197,94,.10);
+    border:1px solid rgba(134,239,172,.25);
+}
+
+.safe h3{
+    color:var(--green);
+    margin-bottom:10px;
+}
+
+.safe p{
+    line-height:1.8;
+}
+
+.lesson{
+    margin-top:20px;
+    padding:22px;
+    border-radius:18px;
+    text-align:left;
+
+    background:rgba(251,191,36,.10);
+    border:1px solid rgba(251,191,36,.30);
+}
+
+.lesson h3{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.lesson p{
+    line-height:1.9;
+}
+
+.steps{
+    text-align:left;
+    margin-top:25px;
+}
+
+.steps h3{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.steps ol{
+    padding-left:22px;
+    line-height:2;
+    color:var(--muted);
+}
+
+.steps strong{
+    color:white;
+}
+
+.remember{
+    margin-top:25px;
+    font-size:1.15rem;
+    font-weight:800;
+}
+
+.footer{
+    margin-top:28px;
+    color:#94a3b8;
+    line-height:1.8;
+}
+
+.confetti{
+    position:fixed;
+    top:-50px;
+    font-size:1.6rem;
+    pointer-events:none;
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(120vh) rotate(720deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="pill">
+        🛡️ CYBER SAFETY CLASSROOM SIMULATION
+    </div>
+
+    <div class="teacher-banner">
+        <div class="school">EMS HIGHSCHOOL</div>
+
+        <div class="campaign">
+            Cyber Safety Awareness Campaign
+        </div>
+
+        <div class="teacher">
+            By <strong>Namra Minhaj</strong> • Computer Science Teacher
+        </div>
+    </div>
+
+    <div class="warning">
+        ⚠️ CYBER SECURITY BREACH SIMULATION ⚠️
+    </div>
+
+    <div class="hero">🚨</div>
+
+    <h1 class="gradient">PHISHING ALERT!</h1>
+
+    <p class="subtitle">
+        Someone just clicked a suspicious assignment submission link...
+    </p>
+
+    <div class="reveal">
+        <h2>😱 Surprise! You Clicked the Bait!</h2>
+
+        <p>
+            This was a simulated phishing message designed to look
+            like a normal assignment submission or score notification.
+        </p>
+    </div>
+
+    <div class="safe">
+        <h3>✅ You're Safe</h3>
+
+        <p>
+            No passwords were collected.
+            No marks were accessed.
+            No personal information was requested or stored.
+            This is an educational awareness activity only.
+        </p>
+    </div>
+
+    <div class="lesson">
+        <h3>💡 The Lesson</h3>
+
+        <p>
+            Phishing attacks succeed because they create trust,
+            curiosity, urgency, or fear. A familiar-looking message
+            is not proof that a link is safe.
+            Cybercriminals often imitate teachers, schools, banks,
+            gaming services, and social media platforms.
+        </p>
+
+        <p style="margin-top:12px;">
+            Always verify unexpected messages before clicking links,
+            downloading files, or entering personal information.
+        </p>
+    </div>
+
+    <div class="steps">
+        <h3>🕵️ Your Cyber Safety Check</h3>
+
+        <ol>
+            <li>
+                <strong>Check the sender:</strong>
+                Were you expecting the message?
+            </li>
+
+            <li>
+                <strong>Check the link:</strong>
+                Does the website address match the real source?
+            </li>
+
+            <li>
+                <strong>Verify first:</strong>
+                Ask your teacher through a trusted channel.
+            </li>
+        </ol>
+    </div>
+
+    <div class="remember">
+        🔐 THINK BEFORE YOU CLICK. VERIFY BEFORE YOU TRUST.
+    </div>
+
+    <div class="footer">
+        Sincerely,<br><br>
+
+        <strong>Namra Minhaj</strong><br>
+        Computer Science Teacher<br>
+        EMS Highschool
+    </div>
+
+</div>
+
+<script>
+const icons = ['🎣','⚠️','🛡️','🔐','✨'];
+
+for(let i=0;i<20;i++){
+
+    const piece = document.createElement('div');
+    piece.className = 'confetti';
+    piece.textContent = icons[i % icons.length];
+
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.animationDuration =
+        (Math.random() * 2 + 3) + 's';
+
+    document.body.appendChild(piece);
+
+    setTimeout(()=>{
+        piece.remove();
+    },5000);
+}
+</script>
+
+</body>
+</html>
